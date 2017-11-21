@@ -8,7 +8,16 @@ import javax.servlet.http.HttpServletResponse;
 
 public class UploadPicture extends HttpServlet {
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+	protected void doGet(HttpServletRequest reqest, HttpServletResponse response) 
+			throws ServletException, IOException {
+		response.getWriter().println("Hello World!");
+	}
+	@Override
+	public void init() throws ServletException {
+		System.out.println("Servlet " + this.getServletName() + " has started");
+	}
+	@Override
+	public void destroy() {
+		System.out.println("Servlet " + this.getServletName() + " has stopped");
 	}
 }

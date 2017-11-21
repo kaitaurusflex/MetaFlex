@@ -12,6 +12,6 @@
   </servlet>
   <servlet-mapping>
   	<servlet-name>UploadPicture</servlet-name>
-  	<url-pattern>/UploadPicture</url-pattern>
+  	<url-pattern>/upload</url-pattern>
   </servlet-mapping>
 </web-app>
