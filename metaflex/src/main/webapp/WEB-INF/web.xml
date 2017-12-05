@@ -10,8 +10,8 @@
   	<description></description>
   	<servlet-class>ch.octokek.web.UploadPicture</servlet-class>
   </servlet> -->
-  <servlet-mapping>
+<!--   <servlet-mapping>
   	<servlet-name>UploadPicture</servlet-name>
   	<url-pattern>/upload</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> -->
 </web-app>

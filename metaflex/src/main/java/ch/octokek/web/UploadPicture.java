@@ -26,6 +26,11 @@ public class UploadPicture extends HttpServlet {
 		InputStream fileContent = filePart.getInputStream();
 		try {
 			Metadata meta = ImageMetadataReader.readMetadata(fileContent);
+			if(meta.getDirectoryCount() == 0){
+				System.out.println("no metadata available!");
+			}else{
+				System.out.println("metadata available!");
+			}
 		} catch (ImageProcessingException e) {
 			// TODO: handle errors
 		}
