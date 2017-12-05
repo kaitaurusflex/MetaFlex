@@ -9,5 +9,14 @@ body{
   font-family: roboto;
 }
 #logo_title{
-  color: green;
+
+  font-family: roboto;
+}
+
+.seperator{
+  background-color: black;
+  height: 1px;
+  width: 100%;
+  opacity: 0.2;
+  margin-bottom: 50px;
 }
