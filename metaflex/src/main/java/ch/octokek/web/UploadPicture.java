@@ -29,7 +29,7 @@ public class UploadPicture extends HttpServlet {
 			if(meta.getDirectoryCount() == 0){
 				System.out.println("no metadata available!");
 			}else{
-				System.out.println("metadata available!");
+				ImageData.extractMetadata(meta, filePart.getContentType());
 			}
 		} catch (ImageProcessingException e) {
 			// TODO: handle errors
