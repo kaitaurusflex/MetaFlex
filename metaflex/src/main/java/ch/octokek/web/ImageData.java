@@ -17,25 +17,22 @@ public class ImageData {
 	public static void extractMetadata(Metadata meta, String fileType) {
 		fileType = fileType.split("/")[1];
 		System.out.println(fileType);
-		if(FileType.JPEG.getValue().equals(fileType)){
+		if (FileType.JPEG.getValue().equals(fileType)) {
 			System.out.println("amk");
 			JpegDirectory jpegDirectory = meta.getFirstDirectoryOfType(JpegDirectory.class);
 			JpegDescriptor descriptor = new JpegDescriptor(jpegDirectory);
-			
+
 			compressionType = descriptor.getImageCompressionTypeDescription();
 			height = descriptor.getImageHeightDescription();
 			width = descriptor.getImageWidthDescription();
 			for (Directory directory : meta.getDirectories()) {
-			    for (Tag tag : directory.getTags()) {
-			        System.out.println(tag);
-			    }
+				for (Tag tag : directory.getTags()) {
+					System.out.println(tag);
+				}
 			}
-			
-		}else if(FileType.PNG.getValue().equals(fileType)){
+
+		} else if (FileType.PNG.getValue().equals(fileType)) {
 			Directory pngDirectory = meta.getFirstDirectoryOfType(PngDirectory.class);
 		}
 	}
-	
-	
-	
 }
