@@ -32,8 +32,7 @@ public class UploadPicture extends HttpServlet {
 				imageData.extractMetadata(meta, filePart.getContentType());
 				// Forward to display site
 				req.setAttribute("imageData", imageData);
-				req.setAttribute("test", "fuck you");
-				req.getRequestDispatcher("imageData.jsp").forward(req, resp);
+				req.getRequestDispatcher("mainpage.jsp").forward(req, resp);
 			}
 		} catch (ImageProcessingException e) {
 			// TODO: handle errors
