@@ -20,19 +20,24 @@ import com.drew.metadata.Metadata;
 @WebServlet(name = "UploadPicture", urlPatterns = { "/upload" }, loadOnStartup = 1)
 public class UploadPicture extends HttpServlet {
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		Part filePart = request.getPart("file");
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Part filePart = req.getPart("file");
 		InputStream fileContent = filePart.getInputStream();
 		try {
 			Metadata meta = ImageMetadataReader.readMetadata(fileContent);
-			if(meta.getDirectoryCount() == 0){
+			if (meta.getDirectoryCount() == 0) {
 				System.out.println("no metadata available!");
-			}else{
-				ImageData.extractMetadata(meta, filePart.getContentType());
+			} else {
+				ImageData imageData = new ImageData();
+				imageData.extractMetadata(meta, filePart.getContentType());
+				// Forward to display site
+				req.setAttribute("imageData", imageData);
+				req.setAttribute("test", "fuck you");
+				req.getRequestDispatcher("imageData.jsp").forward(req, resp);
 			}
 		} catch (ImageProcessingException e) {
 			// TODO: handle errors
 		}
+
 	}
 }
