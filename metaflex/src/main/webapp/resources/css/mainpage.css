@@ -18,5 +18,29 @@ body{
   height: 1px;
   width: 100%;
   opacity: 0.2;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+}
+
+.attribute{
+margin-top: 5px;
+margin-bottom: 5px;
+
+}
+
+
+.attributeValue{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.anotherPic{
+  text-decoration: none;
+  color: 9a91ff;
+}
+
+
+
+.anotherPic:hover{
+  text-decoration: underline;
+  color: 9a91ff;
 }
