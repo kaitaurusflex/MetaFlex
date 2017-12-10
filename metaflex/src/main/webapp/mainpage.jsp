@@ -1,8 +1,13 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Metaflex Details</title>
 <link href="resources/css/mainpage.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
 </script>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400"
 	rel="stylesheet">
@@ -11,7 +16,25 @@
 	<!-- Script has to be loaded in body to work-->
 	<script src="http://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
 	<div id="logo_wrapper">
-		<h1 id="logo_title"></h1>
+		<h1 id="logo_title">YOUR METADATA</h1>
+
+
+
+
+
+
+		<%
+			String s = request.getParameter("error");
+		%>
+		<%
+			if (s == null || s.isEmpty()) {
+		%>
+		<div class="alert alert-danger" role="alert"
+			style="margin: auto; margin-top: 300px; margin-bottom: 200px;; width: 50%;">${error}</div>
+
+		<%
+			} else {
+		%>
 		<div id="dataContent">
 			<h4 class="attribute">compressionType</h4>
 			<h6 class="attributeValue">${imageData.compressionType != null ? imageData.compressionType : "-"}</h6>
@@ -40,11 +63,16 @@
 
 			<br>
 		</div>
+		<%
+			}
+		%>
+
 		<h2 style="display: none;">No Data available</h2>
 		<a href="#" class="anotherPic">Upload another Picture</a>
 		<div id="pictureDetails"></div>
 		<div class="seperator"></div>
 		<div id="lowerSite">
+
 			<a href="https://github.com/zenosaurusflex"> <img
 				src="resources/images/git.png" height="25px" /></a> <a
 				href="https://github.com/zenosaurusflex"> <img

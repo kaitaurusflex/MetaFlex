@@ -34,8 +34,9 @@ public class UploadPicture extends HttpServlet {
 				req.setAttribute("imageData", imageData);
 				req.getRequestDispatcher("mainpage.jsp").forward(req, resp);
 			}
-		} catch (ImageProcessingException e) {
-			// TODO: handle errors
+		} catch (Exception e) {
+			req.setAttribute("error", "an error occured please try again");
+			req.getRequestDispatcher("mainpage.jsp").forward(req, resp);
 		}
 
 	}
