@@ -32,10 +32,11 @@ public class UploadPicture extends HttpServlet {
 				imageData.extractMetadata(meta, filePart.getContentType());
 				// Forward to display site
 				req.setAttribute("imageData", imageData);
+				req.setAttribute("error", false);
 				req.getRequestDispatcher("mainpage.jsp").forward(req, resp);
 			}
 		} catch (Exception e) {
-			req.setAttribute("error", "an error occured please try again");
+			req.setAttribute("error", true);
 			req.getRequestDispatcher("mainpage.jsp").forward(req, resp);
 		}
 
